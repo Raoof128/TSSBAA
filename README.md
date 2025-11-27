@@ -130,7 +130,7 @@ uvicorn.run(build_nf_app(settings), host=settings.exposed_host, port=settings.ex
 ## Testing and linting
 ```bash
 pytest
-ruff .
+ruff check .
 ```
 
 ## Project structure

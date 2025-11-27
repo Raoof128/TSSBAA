@@ -38,7 +38,7 @@ For local-only processes, see the quickstart in [README.md](../README.md) or the
 - Type hints and docstrings are required for public functions/classes.
 - Keep simulations **safe** and offline.
 - Validate inputs and log defensive decisions (authentication, slice checks, rate limits).
-- Run `ruff format .` before committing.
+- Run `ruff check .` and `ruff format .` before committing.
 
 ## Tests
 Pytest is configured with async support. Add tests under `tests/` and ensure coverage for new defences or monitoring rules.
