@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5G SBA Security Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>5G SBA Attack & Defence Lab</h1>
+    <p class="subtitle">Simulated control plane observability</p>
+  </header>
+  <main>
+    <section id="topology">
+      <h2>SBA Topology</h2>
+      <div id="graph"></div>
+    </section>
+    <section id="alerts">
+      <h2>Recent Alerts</h2>
+      <ul id="alert-list"></ul>
+    </section>
+    <section id="posture">
+      <h2>Security Posture</h2>
+      <div id="posture-panel"></div>
+    </section>
+  </main>
+  <script src="dashboard.js"></script>
+</body>
+</html>

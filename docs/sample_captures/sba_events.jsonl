@@ -1,0 +1,2 @@
+{"ts": "2024-01-01T00:00:01Z", "source": "rogue-smf", "path": "/register", "verdict": "blocked", "details": "Attestation failed: Missing attestation token"}
+{"ts": "2024-01-01T00:00:02Z", "source": "amf-1", "path": "/register", "verdict": "allowed", "details": "Token valid"}
