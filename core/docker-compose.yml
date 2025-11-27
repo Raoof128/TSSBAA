@@ -1,0 +1,55 @@
+version: "3.9"
+services:
+  nrf:
+    build:
+      context: ..
+      dockerfile: core/Dockerfile
+    command: ["python", "-m", "core.nfs.main", "nrf", "--host", "0.0.0.0", "--port", "7777", "--jwt-secret", "lab-secret"]
+    ports:
+      - "7777:7777"
+    networks:
+      - sba
+
+  amf:
+    build:
+      context: ..
+      dockerfile: core/Dockerfile
+    command: ["python", "-m", "core.nfs.main", "nf", "--nf-type", "AMF", "--instance", "amf-1", "--port", "7778", "--nrf-url", "http://nrf:7777", "--jwt-secret", "lab-secret"]
+    depends_on:
+      - nrf
+    networks:
+      - sba
+
+  smf:
+    build:
+      context: ..
+      dockerfile: core/Dockerfile
+    command: ["python", "-m", "core.nfs.main", "nf", "--nf-type", "SMF", "--instance", "smf-1", "--port", "7779", "--nrf-url", "http://nrf:7777", "--jwt-secret", "lab-secret"]
+    depends_on:
+      - nrf
+    networks:
+      - sba
+
+  pcf:
+    build:
+      context: ..
+      dockerfile: core/Dockerfile
+    command: ["python", "-m", "core.nfs.main", "nf", "--nf-type", "PCF", "--instance", "pcf-1", "--port", "7781", "--nrf-url", "http://nrf:7777", "--jwt-secret", "lab-secret", "--slices", "001-data,001-voice"]
+    depends_on:
+      - nrf
+    networks:
+      - sba
+
+  rogue-smf:
+    build:
+      context: ..
+      dockerfile: core/Dockerfile
+    command: ["python", "attacks/nf_impersonation.py"]
+    depends_on:
+      - nrf
+    networks:
+      - sba
+
+networks:
+  sba:
+    driver: bridge

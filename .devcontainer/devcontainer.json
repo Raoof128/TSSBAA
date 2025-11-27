@@ -1,0 +1,22 @@
+{
+  "name": "tssbaa-lab",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "postCreateCommand": "pip install -e .[dev]",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.analysis.typeCheckingMode": "basic",
+        "editor.formatOnSave": true,
+        "ruff.organizeImports": true
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "charliermarsh.ruff"
+      ]
+    }
+  }
+}
